@@ -1,0 +1,134 @@
+.wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 30% 50%, rgba(200, 255, 62, 0.05), transparent 50%),
+    radial-gradient(circle at 70% 50%, rgba(107, 92, 255, 0.06), transparent 50%),
+    rgba(8, 8, 12, 0.5);
+  border: 1px solid var(--line-strong);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.6),
+    inset 0 0 0 1px rgba(200, 255, 62, 0.05);
+}
+.canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.layers {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.layers span {
+  position: absolute;
+  top: 0.85rem;
+  transform: translateX(-50%);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.65rem;
+  color: var(--fg-mute);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.feat {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  background: rgba(15, 15, 23, 0.85);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--line-strong);
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  min-width: 220px;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.6);
+  animation: in 1s var(--ease-out) backwards;
+  animation-delay: 0.8s;
+}
+@keyframes in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+.featTitle {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.65rem;
+  color: var(--fg-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.65rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--line);
+}
+.featRow {
+  display: grid;
+  grid-template-columns: 60px 1fr 30px;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 0.25rem 0;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.65rem;
+  color: var(--fg);
+}
+.featBar {
+  height: 4px;
+  background: var(--line);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.featBar span {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  border-radius: 2px;
+  animation: featGrow 1.5s var(--ease-out) forwards;
+  animation-delay: 1s;
+}
+@keyframes featGrow {
+  to {
+    width: var(--w);
+  }
+}
+.featV {
+  color: var(--accent);
+  text-align: right;
+}
+
+.pred {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: linear-gradient(135deg, rgba(200, 255, 62, 0.12), rgba(107, 92, 255, 0.12));
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(200, 255, 62, 0.3);
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.6);
+  animation: in 1s var(--ease-out) backwards;
+  animation-delay: 0.5s;
+}
+.predLbl {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.6rem;
+  color: var(--fg-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.35rem;
+}
+.predVal {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.predConf {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.65rem;
+  color: var(--fg-mute);
+  margin-top: 0.3rem;
+}

@@ -1,0 +1,37 @@
+.marquee {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+  padding: 1.5rem 0;
+  background: var(--bg-2);
+  position: relative;
+  z-index: 2;
+}
+.track {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  white-space: nowrap;
+  animation: marquee 30s linear infinite;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+}
+.item {
+  display: inline-flex;
+  gap: 3rem;
+  align-items: center;
+}
+.dot {
+  color: var(--accent);
+  font-size: 0.6em;
+}
+.marquee:hover .track {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}

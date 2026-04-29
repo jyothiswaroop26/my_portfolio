@@ -1,0 +1,104 @@
+.section {
+  position: relative;
+  z-index: 2;
+  padding: 8rem 2rem;
+}
+.head {
+  max-width: 1600px;
+  margin: 0 auto 5rem;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  max-width: 1600px;
+  margin: 0 auto;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.card {
+  background: rgba(15, 15, 23, 0.65);
+  backdrop-filter: blur(14px) saturate(140%);
+  padding: 2.5rem 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.5s var(--ease);
+  cursor: none;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+.card:hover {
+  background: rgba(22, 22, 31, 0.75);
+}
+.num {
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.7rem;
+  color: var(--fg-mute);
+}
+.glow {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(200, 255, 62, 0.18), transparent 70%);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.4s var(--ease);
+  top: var(--my, 50%);
+  left: var(--mx, 50%);
+}
+.card:hover .glow {
+  opacity: 1;
+}
+.icon {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  margin-bottom: 1.5rem;
+  transition: transform 0.5s var(--ease-out), background 0.4s var(--ease);
+}
+.card:hover .icon {
+  transform: rotate(360deg);
+  background: rgba(200, 255, 62, 0.1);
+}
+.title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
+}
+.desc {
+  color: var(--fg-dim);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.8rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+.bar {
+  height: 2px;
+  background: var(--line);
+  overflow: hidden;
+  border-radius: 2px;
+}
+.bar span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+}
+
+@media (max-width: 700px) {
+  .section {
+    padding: 5rem 1.5rem;
+  }
+}

@@ -1,0 +1,139 @@
+.section {
+  position: relative;
+  z-index: 2;
+  padding: 10rem 2rem 0;
+  text-align: center;
+}
+.inner {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.pre {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.75rem;
+  color: var(--fg-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  margin-bottom: 2rem;
+}
+.headline {
+  font-size: clamp(2.5rem, 9vw, 8rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  margin-bottom: 5rem;
+}
+.headline em {
+  font-style: italic;
+  font-family: var(--font-serif), serif;
+  color: var(--accent);
+  font-weight: 400;
+}
+.mailLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--accent);
+  border-bottom: 4px solid var(--accent);
+  padding-bottom: 0.5rem;
+  cursor: none;
+  background: transparent;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  font: inherit;
+}
+.mailLink svg {
+  transition: transform 0.4s var(--ease-out);
+}
+.mailLink:hover svg {
+  transform: rotate(-45deg);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  text-align: left;
+}
+.tile {
+  background: rgba(15, 15, 23, 0.65);
+  backdrop-filter: blur(14px);
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: background 0.4s var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+.tile::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s var(--ease-out);
+}
+.tile:hover {
+  background: rgba(22, 22, 31, 0.75);
+}
+.tile:hover::before {
+  transform: scaleX(1);
+}
+.tileIcon {
+  font-size: 1.5rem;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+  font-family: var(--font-mono), monospace;
+}
+.tileLbl {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.65rem;
+  color: var(--fg-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+.tileVal {
+  font-size: 0.9rem;
+  color: var(--fg);
+  word-break: break-all;
+}
+
+.footer {
+  margin-top: 6rem;
+  padding: 2rem 0;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.7rem;
+  color: var(--fg-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+.footerMid {
+  color: var(--fg-mute);
+}
+.time {
+  color: var(--accent);
+}
+@media (max-width: 700px) {
+  .footer {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  .section {
+    padding: 5rem 1.5rem 0;
+  }
+}
