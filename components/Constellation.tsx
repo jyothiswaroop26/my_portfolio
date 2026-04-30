@@ -155,6 +155,7 @@ export default function Constellation() {
     })).filter((c) => c.a && c.b);
 
     function resize() {
+      if (!canvas || !ctx) return;
       w = window.innerWidth;
       h = window.innerHeight;
       canvas.style.width = w + "px";
@@ -225,6 +226,7 @@ export default function Constellation() {
     }
 
     function render(time: number) {
+      if (!ctx) return;
       ctx.clearRect(0, 0, w, h);
 
       // connections
